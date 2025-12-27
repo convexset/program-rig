@@ -1,0 +1,14 @@
+{
+  "ProgramRig-Stack-dev": {
+    "HostedZoneName": "pr-dev.helpfulowl.com",
+    "AWSAccountNumber": "490956688664",
+    "WebDistributionDomainName": "d3cavitm0e03uo.cloudfront.net",
+    "WebBucketName": "programrig-stack-dev-programrigwebsitebucketce8f20-gwqvfkdcljgb",
+    "HostedZoneId": "Z04049911V0UU69C4IWGR",
+    "WebDistributionId": "E36S5EILA5ZWRN",
+    "CacheTableName": "program-rig-cache-dev",
+    "AWSRegion": "ap-southeast-1",
+    "WebDomain": "pr-dev.helpfulowl.com",
+    "ProgramRigAssetsDataBucketName": "programrig-stack-dev-programrigassetsdatabucketb2a-1cbtgqmlisye"
+  }
+}

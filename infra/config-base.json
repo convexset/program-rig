@@ -1,0 +1,8 @@
+{
+    "App Name": "Program Rig",
+    "App Name Prefix": "ProgramRig",
+    "App Resource Name Prefix": "program-rig",
+    "Do S3 Deploy": false,
+    "Web Certificate Arn": "arn:aws:acm:us-east-1:490956688664:certificate/2d90b6f4-40e3-4181-ba28-1455c0e6159e",
+    "Web Hosted Zone Id": "Z04049911V0UU69C4IWGR"
+}

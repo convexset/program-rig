@@ -1,0 +1,223 @@
+{
+    "screens": [
+        {
+            "name": "Workout A",
+            "groups": [
+                {
+                    "name": "Zone 1",
+                    "duration": 90,
+                    "style": "normal",
+                    "parts": [
+                        {
+                            "type": "cyclic-text",
+                            "items": [
+                                {
+                                    "duration": 15,
+                                    "center-text": "work",
+                                    "right-text": "1/2"
+                                },
+                                {
+                                    "duration": 15,
+                                    "center-text": "rest",
+                                    "right-text": "next 2/2"
+                                },
+                                {
+                                    "duration": 15,
+                                    "center-text": "work",
+                                    "right-text": "2/2"
+                                }
+                            ]
+                        },
+                        {
+                            "type": "centered-text",
+                            "label": "Exercise 1"
+                        },
+                        {
+                            "type": "youtube",
+                            "id": "uODWo4YqbT8"
+                        },
+                        {
+                            "type": "centered-text",
+                            "label": "2 reps ES"
+                        },
+                        {
+                            "type": "centered-text",
+                            "label": ""
+                        },
+                        {
+                            "type": "centered-short-text",
+                            "label": "Exercise 2"
+                        },
+                        {
+                            "type": "youtube",
+                            "id": "OGdH1D2aZPU"
+                        },
+                        {
+                            "type": "centered-text",
+                            "label": "4 reps"
+                        }
+                    ]
+                },
+                {
+                    "name": "Rest",
+                    "duration": 60,
+                    "style": "rest",
+                    "parts": [
+                        {
+                            "type": "centered-short-text",
+                            "label": "Rest"
+                        },
+                        {
+                            "type": "group-countdown-timer"
+                        }
+                    ]
+                },
+                {
+                    "name": "Zone 2",
+                    "duration": 90,
+                    "style": "normal",
+                    "parts": [
+                        {
+                            "type": "cyclic-text",
+                            "items": [
+                                {
+                                    "duration": 30,
+                                    "center-text": "work",
+                                    "right-text": "1/2"
+                                },
+                                {
+                                    "duration": 30,
+                                    "center-text": "rest",
+                                    "right-text": "next 2/2"
+                                },
+                                {
+                                    "duration": 30,
+                                    "center-text": "work",
+                                    "right-text": "2/2"
+                                }
+                            ]
+                        },
+                        {
+                            "type": "centered-text",
+                            "label": "Exercise 3"
+                        },
+                        {
+                            "type": "youtube",
+                            "id": "g4GUrEFoBxY"
+                        },
+                        {
+                            "type": "centered-text",
+                            "label": "4 reps (superset)"
+                        },
+                        {
+                            "type": "centered-text",
+                            "label": ""
+                        },
+                        {
+                            "type": "centered-short-text",
+                            "label": "Exercise 4"
+                        },
+                        {
+                            "type": "youtube",
+                            "id": "mRfJZsn5DYY"
+                        },
+                        {
+                            "type": "centered-text",
+                            "label": "4 reps (superset)"
+                        }
+                    ]
+                }
+            ],
+            "duration": 240,
+            "closingMessage": "<h3>Very nice!</h3><p><strong>Congratulations</strong> on completing your workout! Remember to:</p><ul><li>Stay hydrated</li><li><em>Stretch</em> properly</li><li>Get adequate rest</li></ul><h3>Workout Summary</h3><table><thead><tr><th>Metric</th><th>Value</th></tr></thead><tbody><tr><td>Total Duration</td><td>240 seconds</td></tr><tr><td>Exercises</td><td>6 total</td></tr><tr><td>Rest Periods</td><td>2 (60s each)</td></tr></tbody></table>"
+        },
+        {
+            "name": "Workout B",
+            "groups": [
+                {
+                    "name": "Exercise B1",
+                    "duration": 40,
+                    "style": "normal",
+                    "parts": [
+                        {
+                            "type": "youtube",
+                            "id": "uODWo4YqbT8"
+                        },
+                        {
+                            "type": "centered-text",
+                            "label": "AMRAP"
+                        },
+                        {
+                            "type": "group-countdown-timer"
+                        }
+                    ]
+                },
+                {
+                    "name": "Rest",
+                    "duration": 60,
+                    "style": "rest",
+                    "parts": [
+                        {
+                            "type": "centered-short-text",
+                            "label": "Rest"
+                        },
+                        {
+                            "type": "group-countdown-timer"
+                        }
+                    ]
+                },{
+                    "name": "Exercise B2",
+                    "duration": 40,
+                    "style": "normal",
+                    "parts": [
+                        {
+                            "type": "youtube",
+                            "id": "OGdH1D2aZPU"
+                        },
+                        {
+                            "type": "centered-text",
+                            "label": "AMRAP"
+                        },
+                        {
+                            "type": "group-countdown-timer"
+                        }
+                    ]
+                },
+                {
+                    "name": "Rest",
+                    "duration": 60,
+                    "style": "rest",
+                    "parts": [
+                        {
+                            "type": "centered-short-text",
+                            "label": "Rest"
+                        },
+                        {
+                            "type": "group-countdown-timer"
+                        }
+                    ]
+                },{
+                    "name": "Exercise B3",
+                    "duration": 40,
+                    "style": "normal",
+                    "parts": [
+                        {
+                            "type": "youtube",
+                            "id": "g4GUrEFoBxY"
+                        },
+                        {
+                            "type": "centered-text",
+                            "label": "AMRAP"
+                        },
+                        {
+                            "type": "group-countdown-timer"
+                        }
+                    ]
+                }
+            ],
+            "duration": 240,
+            "closingMessage": "<h3>Great Work!</h3><p><strong>Congratulations</strong> on completing your workout! Remember to:</p><ul><li>Stay hydrated</li><li><em>Stretch</em> properly</li><li>Get adequate rest</li></ul><h3>Workout Summary</h3><table><thead><tr><th>Metric</th><th>Value</th></tr></thead><tbody><tr><td>Total Duration</td><td>240 seconds</td></tr><tr><td>Exercises</td><td>6 total</td></tr><tr><td>Rest Periods</td><td>2 (60s each)</td></tr></tbody></table>"
+        }
+    ],
+    "screenDuration": 240
+}
