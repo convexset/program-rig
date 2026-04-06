@@ -18,7 +18,7 @@ export default function ProgramExecutor() {
   const [selectedScreen, setSelectedScreen] = useState(0);
   const [stateSource, setStateSource] = useState<'localStorage' | 'api'>('localStorage');
   const [stateSourceUrl, setStateSourceUrl] = useState(`${appConfig.apiRoot}/workout-state/your-workout-code`);
-  const [enableStateSetter, setEnableStateSetter] = useState(false);
+  const [enableStateSetter, setEnableStateSetter] = useState(true);
   const [stateSetterUrl, setStateSetterUrl] = useState(`${appConfig.apiRoot}/workout-state/your-workout-code/your-api-key`);
   const [currentTime, setCurrentTime] = useState(new Date());
   const [startDateTimeInput, setStartDateTimeInput] = useState('');
@@ -228,25 +228,28 @@ export default function ProgramExecutor() {
             <h2 style={{ fontSize: '1.5rem', marginBottom: '1rem' }}>Configuration</h2>
 
             {/* Screen Selector */}
-            {programDefinition.screens.length > 1 && (
-              <div style={{ marginBottom: '1rem' }}>
-                <label style={{ marginRight: '0.5rem', fontWeight: 'bold' }}>Select Screen:</label>
-                <select
-                  value={selectedScreen}
-                  onChange={(e) => setSelectedScreen(parseInt(e.target.value))}
-                  style={{ padding: '0.5rem', fontSize: '1rem' }}
-                >
-                  {programDefinition.screens.map((screen, index) => (
-                    <option key={index} value={index}>
-                      {screen.name}
-                    </option>
-                  ))}
-                </select>
-              </div>
-            )}
+            <div style={{ marginTop: '1rem' }}>
+              <label style={{ marginRight: '0.5rem', fontWeight: 'bold' }}>Select Screen:</label>
+              <select
+                value={selectedScreen}
+                onChange={(e) => setSelectedScreen(parseInt(e.target.value))}
+                style={{ padding: '0.5rem', fontSize: '1rem' }}
+              >
+                {programDefinition.screens.map((screen, index) => (
+                  <option key={index} value={index}>
+                    {screen.name}
+                  </option>
+                ))}
+              </select>
+            </div>
+            {
+              programDefinition.screens.length === 1 && (
+                <p style={{ color: 'gray' }}>Only one screen available.</p>
+              )
+            }
 
             {/* State Source Selector */}
-            <div style={{ marginBottom: '1rem' }}>
+            <div style={{ marginTop: '1rem' }}>
               <label style={{ fontWeight: 'bold', display: 'block', marginBottom: '0.5rem' }}>
                 State Source:
               </label>
@@ -256,7 +259,12 @@ export default function ProgramExecutor() {
                     type="radio"
                     value="localStorage"
                     checked={stateSource === 'localStorage'}
-                    onChange={(e) => setStateSource(e.target.value as 'localStorage')}
+                    onChange={(e) => {
+                      setStateSource(e.target.value as 'localStorage')
+                      if (e.target.value === 'localStorage') {
+                        setEnableStateSetter(true);
+                      }
+                    }}
                   />
                   {' '}LocalStorage
                 </label>
@@ -265,7 +273,12 @@ export default function ProgramExecutor() {
                     type="radio"
                     value="api"
                     checked={stateSource === 'api'}
-                    onChange={(e) => setStateSource(e.target.value as 'api')}
+                    onChange={(e) => {
+                      setStateSource(e.target.value as 'api')
+                      if (e.target.value === 'api') {
+                        setEnableStateSetter(false);
+                      }
+                    }}
                   />
                   {' '}API
                 </label>
@@ -281,33 +294,52 @@ export default function ProgramExecutor() {
               )}
             </div>
 
-            {/* State Setter */}
-            <div style={{ marginBottom: '1rem' }}>
-              <label>
-                <input
-                  type="checkbox"
-                  checked={enableStateSetter}
-                  onChange={(e) => setEnableStateSetter(e.target.checked)}
-                />
-                {' '}Enable State Setter
-              </label>
-              {enableStateSetter && stateSource === 'api' && (
-                <input
-                  type="text"
-                  value={stateSetterUrl}
-                  onChange={(e) => setStateSetterUrl(e.target.value)}
-                  placeholder="POST URL for setting state"
-                  style={{ marginTop: '0.5rem', width: '100%', padding: '0.5rem' }}
-                />
-              )}
-            </div>
+            <details style={{ marginTop: '1rem', border: '1px solid #ccc', borderRadius: '4px', padding: '0.75rem' }}>
+              <summary style={{ fontWeight: 'bold', cursor: 'pointer' }}>
+                Advanced: Cross Device/Screen State Management
+              </summary>
 
-            <div>When in doubt, use the LocalStorage State Source, and enable the State Setter. This will allow you to display a multi-screen program in multiple browser windows/tabs on the same machine.</div>
+              <div style={{ marginTop: '0.75rem' }}>
+                <label>
+                  <input
+                    type="checkbox"
+                    checked={enableStateSetter}
+                    onChange={(e) => setEnableStateSetter(e.target.checked)}
+                  />
+                  {' '}Enable State Setter
+                </label>
+                {enableStateSetter && stateSource === 'api' && (
+                  <input
+                    type="text"
+                    value={stateSetterUrl}
+                    onChange={(e) => setStateSetterUrl(e.target.value)}
+                    placeholder="POST URL for setting state"
+                    style={{ marginTop: '0.5rem', width: '100%', padding: '0.5rem' }}
+                  />
+                )}
+
+                <div style={{ marginTop: '1rem' }}>
+                  <p className="mb-2">
+                    If you are not sure what to do, use the LocalStorage State Source, and enable the State Setter.
+                  </p>
+
+                  <p className="mb-2">
+                    Selecting LocalStorage means state is maintained on the local machine in the browser, and with the API option, the app will fetch state from the provided URL.
+                  </p>
+
+                  <p className="mb-2">
+                    One leader, multiple followers: Enable the State Setter for the view that will control the workout state. This will be the <em>leader</em>, and the rest (the <em>followers</em>) should have the State Setter option turned off.
+                    This will allow you to display a multi-screen program in multiple browser windows/tabs on the same machine or across multiple machines.
+                  </p>
+                </div>
+              </div>
+            </details>
 
             {/* Proceed Button */}
             <button
               onClick={handleProceed}
               style={{
+                marginTop: '2rem',
                 padding: '0.75rem 2rem',
                 fontSize: '1.1rem',
                 fontWeight: 'bold',

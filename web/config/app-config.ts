@@ -44,7 +44,7 @@ interface AppConfig {
 }
 
 export const appConfig: AppConfig = {
-  apiRoot: process.env.APP_ENV === 'prod' ? 'https://pr-api.helpfulowl.com' : 'https://pr-api-dev.helpfulowl.com',
+  apiRoot: process.env.NEXT_PUBLIC_APP_ENV === 'prod' ? 'https://pr-api.helpfulowl.com' : 'https://pr-api-dev.helpfulowl.com',
   dev: {
     showElementBorders: false,
   },
@@ -87,3 +87,7 @@ export const appConfig: AppConfig = {
     },
   },
 };
+
+console.log(`NEXT_PUBLIC_APP_ENV: ${process.env.NEXT_PUBLIC_APP_ENV}`);
+console.log(`NODE_ENV: ${process.env.NODE_ENV}`);
+console.log('AppConfig:', appConfig);
