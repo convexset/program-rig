@@ -42,3 +42,6 @@ tmp-*
 
 pr-venv
 web-build
+
+.project-shared
+

@@ -1,0 +1,1 @@
+../.project-shared/ADOPT_STEERING_FROM_EXTERNAL_REPO.md

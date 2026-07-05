@@ -1,17 +1,22 @@
 # Starter Prompt
 
-The folder `./__copilot__` contains contextual information on the entire application.
+The folder `./__copilot__` contains helper assets, not the canonical
+documentation set.
 
- - `./__copilot__/prompts` contains a history of prompts
- - `./__copilot__/prompts` contains project documentation
- - `./__copilot__/specifications/` will contain technical specs
+- `./__copilot__/prompts` contains historical prompt fragments
+- `./__copilot__/sample-programs` contains example workout inputs and outputs
+- canonical technical docs live in:
+  - `./web/docs`
+  - `./api/docs`
+  - `./infra/docs`
+  - `./project-steering/PROJECT_CONTEXT.md`
 
 
 This is a multi-component application consisting of:
 
 1. **Web Application** (`./web`): NextJS front-end application
    - Pure front-end, no backend
-   - Builds to `../web-build/dev` or `../web-build/prod`
+   - Builds to `./web/web-build/dev` or `./web/web-build/prod`
    - Deployed to S3
 
 2. **API** (`./api`): AWS Chalice serverless API
@@ -23,4 +28,3 @@ This is a multi-component application consisting of:
    - Python-based CDK stack
    - Manages S3, CloudFront, and other AWS resources
    - Multi-environment support (dev/prod)
-

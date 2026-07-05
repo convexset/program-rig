@@ -1,0 +1,1 @@
+../.project-shared/AGENT_ONBOARDING_PROMPT.md
